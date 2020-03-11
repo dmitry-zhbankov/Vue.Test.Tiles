@@ -5,11 +5,13 @@
             <div class="tile-picture">
                 <img v-bind:src="tilePictureUrl">
             </div>
-            <div class="tile-title">
-                <h3>{{title}}</h3>
-            </div>
-            <div class="tile-description">
-                <p>{{ description }}</p>
+            <div class="tile-content">
+                <div class="tile-title">
+                    <h3>{{title}}</h3>
+                </div>
+                <div class="tile-description">
+                    <p>{{ description }}</p>
+                </div>
             </div>
         </a>
     </div>
@@ -34,22 +36,26 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .tile {
-        display: inline-block;
         position: absolute;
         padding: 5px;
         margin: 5px;
         border: solid;
         border-width: thick;
         border-color: transparent;
-        overflow: hidden;
     }
 
     .tile:hover {
         border-color: black;
     }
 
+    .tile-content{
+        position: relative;
+        bottom: 50px;
+    }
+
     .tile-description {
         font-family: Avenir, Helvetica, Arial, sans-serif;
+        position: relative;
     }
 
     .tile-description h3 {
@@ -60,13 +66,25 @@
         margin: 0;
     }
 
-    img {
+    .tile-title{
+        position: relative;
+        bottom: 0;
+    }
+
+    .tile-picture{
+        position: relative;
+        height: auto;
+
+    }
+
+    img{
         object-fit: cover;
-        width: 100%;
     }
 
     a {
         text-decoration: none;
+        display: block;
+        overflow: hidden;
     }
 
     ul {
