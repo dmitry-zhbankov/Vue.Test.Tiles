@@ -1,9 +1,8 @@
 <template>
-    <div>
-        <button v-on:click="$emit('click')" v-bind:style="styleObj">
-            <slot></slot>
-        </button>
-    </div>
+    <button class="my-button" v-on:click="$emit('click')">
+        <img v-bind:src="imageUrl">
+        <slot></slot>
+    </button>
 </template>
 
 <script>
@@ -15,7 +14,6 @@
         data: function () {
             return {
                 styleObj: {
-                    backgroundImage: `url(${this.imageUrl})`
                 }
             }
         }
@@ -23,5 +21,8 @@
 </script>
 
 <style scoped>
-
+    img{
+        width: 20px;
+        height: 20px;
+    }
 </style>

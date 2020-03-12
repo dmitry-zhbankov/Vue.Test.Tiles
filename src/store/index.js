@@ -22,9 +22,13 @@ const actions = {
     }
 }
 
+const getters = {
+    tiles: state => state.tiles
+}
+
 export default new Vuex.Store({
     state,
-    getters: {},
+    getters,
     actions,
     mutations
 })

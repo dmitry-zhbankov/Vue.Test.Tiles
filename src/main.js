@@ -10,4 +10,4 @@ new Vue({
     render: h => h(App),
 })
 
-store.dispatch('getTiles',store);
+store.dispatch('getTiles', store);

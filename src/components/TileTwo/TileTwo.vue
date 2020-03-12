@@ -2,10 +2,10 @@
     <div class="tile"
          v-on:mouseenter="onMouseEnter" v-on:mouseleave="onMouseLeave">
         <a v-bind:href="tileUrl">
-            <div class="tile-picture">
-                <img v-bind:src="tilePictureUrl">
-            </div>
             <div class="tile-content" v-bind:class="{transOn:isTrans, transOff:!isTrans}">
+                <div class="tile-picture">
+                    <img v-bind:src="tilePictureUrl">
+                </div>
                 <div class="tile-title">
                     <h3>{{title}}</h3>
                 </div>
@@ -19,7 +19,7 @@
 
 <script>
     export default {
-        name: 'TileOne',
+        name: 'TileTwo',
         props: {
             title: String,
             description: String,
@@ -61,10 +61,8 @@
     }
 
     .tile-content {
-        padding: 0 5%;
         position: absolute;
-        width: 90%;
-        /*background: rgba(0,0,0,0.3);*/
+        width: 100%;
     }
 
     .tile-description {
@@ -72,18 +70,18 @@
         width: 90%;
         position: absolute;
         font-family: Avenir, Helvetica, Arial, sans-serif;
-        transform: translate(-5%,0);
-        /*background: rgba(0,0,0,0.2);*/
+        transform: translate(-5%, 0);
     }
 
     .tile-title {
         position: relative;
-
     }
 
     .tile-picture {
-        width: 100%;
-        height: 100%;
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        transform: translate(0, -100%);
     }
 
     img {

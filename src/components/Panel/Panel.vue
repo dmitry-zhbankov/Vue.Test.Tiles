@@ -1,33 +1,32 @@
 <template>
     <div class="panel">
-        <div class="refresh-all-button">
-            <Button image-url="./refresh.svg" v-on:click="$emit('refreshAll')">Refresh all</Button>
-        </div>
-        <TileContainer v-for="container in tileContainers"
-                       v-bind:tile="container.tile"
-                       v-bind:key="container.tile.title"
-                       v-bind:tile-height="container.tileHeight"
-                       v-bind:tile-width="container.tileWidth"
-                       v-bind:position-x="container.positionX"
-                       v-bind:position-y="container.positionY"
+        <Button v-bind:image-url="imgUrl" v-on:click="$emit('refreshAll')">Refresh all</Button>
+        <TileContainer v-for="tile in tiles"
+                       v-bind:key="tile.id"
+                       v-bind:tile="tile"
         ></TileContainer>
     </div>
 </template>
 
 <script>
     import TileContainer from "@/components/TileContainer/TileContainer";
+    import Button from "@/components/Button/Button";
 
     export default {
         name: "Panel",
-        components: {TileContainer},
-        props: {
-            tileContainers: []
-        }
+        components: {TileContainer, Button},
+        computed: {
+            tiles: function () {
+                return this.$store.getters.tiles
+            },
+            imgUrl: function () {
+                return require("../../assets/refresh.svg")
+            }
+        },
     }
 </script>
 
 <style scoped>
     .panel {
-
     }
 </style>

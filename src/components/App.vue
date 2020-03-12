@@ -1,11 +1,12 @@
 <template>
     <div id="app">
-        <Panel></Panel>
+        <Panel/>
     </div>
 </template>
 
 <script>
     import Panel from "@/components/Panel/Panel";
+
     export default {
         name: 'App',
         components: {
