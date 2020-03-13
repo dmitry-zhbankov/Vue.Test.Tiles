@@ -75,6 +75,7 @@
         font-family: Avenir, Helvetica, Arial, sans-serif;
         transform: translate(-5%, 0);
         background: rgba(0, 0, 100, 0.2);
+        min-height: 1000%;
     }
 
     .tile-description p{
