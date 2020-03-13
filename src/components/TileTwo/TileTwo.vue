@@ -4,7 +4,7 @@
         <a v-bind:href="tileUrl">
             <div class="tile-content" v-bind:class="{transOn:isTrans, transOff:!isTrans}">
                 <div class="tile-picture">
-                    <img v-bind:src="tilePictureUrl">
+                    <img alt="Tile Picture" v-bind:src="tilePictureUrl">
                 </div>
                 <div class="tile-title">
                     <h3>{{title}}</h3>
@@ -58,6 +58,8 @@
     .tile {
         width: 100%;
         height: 100%;
+        background: steelblue;
+        font-family: Avenir, Helvetica, Arial, sans-serif;
     }
 
     .tile-content {
@@ -66,27 +68,34 @@
     }
 
     .tile-description {
-        padding: 0 5%;
-        width: 90%;
+        box-sizing: border-box;
+        width: 100%;
         position: absolute;
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        transform: translate(-5%, 0);
+        padding: 0 1em;
+    }
+
+    .tile-description p{
+        margin: 0.5em 0;
     }
 
     .tile-title {
-        position: relative;
+        padding: 0 1em;
+    }
+
+    .tile-title h3{
+        margin: 0.5em 0;
     }
 
     .tile-picture {
         position: absolute;
         width: inherit;
+
         height: inherit;
-        transform: translate(0, -100%);
     }
 
     img {
         width: 100%;
-        height: 100%;
+        transform: translate(0, -100%);
     }
 
     a {
@@ -94,5 +103,10 @@
         width: 100%;
         height: 100%;
         text-decoration: none;
+        color: aliceblue
+    }
+
+    a:visited {
+        color: aliceblue;
     }
 </style>

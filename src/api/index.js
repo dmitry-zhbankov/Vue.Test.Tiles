@@ -1,9 +1,12 @@
-import data from "./mock-data"
+import realApi from "./api";
+import mockApi from "./mock-api"
 
-const LATENCY = 50
+let api;
 
-export function fetchAllTiles() {
-    return new Promise(resolve => setTimeout(() => {
-        resolve(data)
-    }, LATENCY))
+if (process.env.NODE_ENV === 'production') {
+    api = realApi;
+} else {
+    api = mockApi;
 }
+
+export default api;

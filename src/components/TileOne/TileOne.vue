@@ -3,7 +3,7 @@
          v-on:mouseenter="onMouseEnter" v-on:mouseleave="onMouseLeave">
         <a v-bind:href="tileUrl">
             <div class="tile-picture">
-                <img v-bind:src="tilePictureUrl">
+                <img alt="Tile Picture" v-bind:src="tilePictureUrl">
             </div>
             <div class="tile-content" v-bind:class="{transOn:isTrans, transOff:!isTrans}">
                 <div class="tile-title">
@@ -58,13 +58,14 @@
     .tile {
         width: 100%;
         height: 100%;
+        font-family: Avenir, Helvetica, Arial, sans-serif;
     }
 
     .tile-content {
         padding: 0 5%;
         position: absolute;
         width: 90%;
-        /*background: rgba(0,0,0,0.3);*/
+        background: rgba(0, 0, 100, 0.2);
     }
 
     .tile-description {
@@ -72,13 +73,21 @@
         width: 90%;
         position: absolute;
         font-family: Avenir, Helvetica, Arial, sans-serif;
-        transform: translate(-5%,0);
-        /*background: rgba(0,0,0,0.2);*/
+        transform: translate(-5%, 0);
+        background: rgba(0, 0, 100, 0.2);
+    }
+
+    .tile-description p{
+        margin: 0.5em 0;
     }
 
     .tile-title {
         position: relative;
+        height: 100%;
+    }
 
+    .tile-title h3{
+        margin: 0.5em 0;
     }
 
     .tile-picture {
@@ -96,5 +105,10 @@
         width: 100%;
         height: 100%;
         text-decoration: none;
+        color: white;
     }
+    a:visited{
+        color: white;
+    }
+
 </style>
