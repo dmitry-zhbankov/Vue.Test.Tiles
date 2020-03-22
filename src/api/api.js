@@ -4,7 +4,7 @@ export default {
             {
                 method:'GET',
                 headers: {
-                    'Accept': 'application/json; odata=verbose'
+                    'Accept': 'application/json'
                 },
                 credentials: 'same-origin'
             });
