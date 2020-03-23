@@ -1,22 +1,27 @@
 function fetchAllTiles() {
-    return fetch("https://wm-windows2012r/projects3/_api/web/lists/GetByTitle('Tiles%20Source')/items",
+
+    return fetch(`${window.location.origin}/projects3/_api/web/lists/GetByTitle('Tiles%20Source')/items`,
         {
             method: 'GET',
+            // credentials: 'include',
+            mode: 'same-origin',
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                // 'Access-Control-Allow-Origin': 'https://wm-windows2012r',
+                // 'Access-Control-Allow-Credentials': true,
             }
         });
 }
 
-export function createTilesInfo(response) {
+export function createTilesInfo(json) {
     let tiles = [];
-    for (let item of response.value) {
+    for (let item of json.value) {
         let tile = {
             id: item.Id,
-            type: item.Type,
+            type: item.TileType,
             title: item.Title,
-            tileUrl: item.TileURL,
-            tilePictureUrl: item.TilePictureURL,
+            tileUrl: item.TileURL.Url,
+            tilePictureUrl: item.TilePictureURL.Url,
             positionX: item.Tile_x0020_Position_x0020_X,
             positionY: item.Tile_x0020_Position_x0020_Y,
             tileWidth: item.Tile_x0020_Width,
@@ -28,5 +33,5 @@ export function createTilesInfo(response) {
 }
 
 export function getAllTiles() {
-    return fetchAllTiles().then(response => createTilesInfo(response))
+    return fetchAllTiles().then(response=>response.json()).then(json => createTilesInfo(json))
 }

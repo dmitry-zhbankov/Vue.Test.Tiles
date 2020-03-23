@@ -63,7 +63,7 @@
     }
 
     .refresh-button {
-        position: absolute;
+        position: relative;
         right: 0;
         top: 0;
     }

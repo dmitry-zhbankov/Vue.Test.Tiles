@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Panel from "@/components/Panel/Panel";
+    import Panel from "./Panel/index";
 
     export default {
         name: 'App',
