@@ -1,9 +1,9 @@
-import Api from "@/api";
+import Api from "./../api/index";
 
 export default {
     getTiles: function (context) {
         // TODO add spinner
         // context.commit('loadStarted');
-        Api.fetchAllTiles().then(receivedTiles => context.commit('refreshTiles', receivedTiles));
+        Api.getAllTiles().then(receivedTiles => context.commit('refreshTiles', receivedTiles));
     }
 }

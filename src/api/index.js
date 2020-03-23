@@ -1,9 +1,9 @@
-import realApi from "./api";
-import mockApi from "./mock-api"
+import * as realApi from "./api";
+import * as mockApi from "./mock-api"
 
 let api;
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'production') {
     api = realApi;
 } else {
     api = mockApi;

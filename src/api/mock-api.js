@@ -1,27 +1,15 @@
 /* eslint-disable no-unused-vars */
-import mockResponse from "./mock-response"
+import response from "./mock-response"
+import {createTilesInfo} from "./api"
 
 const LATENCY = 50;
 
-export default {
-    fetchAllTiles: function () {
-        let tiles = [];
-        for (let item of mockResponse.value) {
-            let tile = {
-                id: item.Id,
-                type: item.Type,
-                title: item.Title,
-                tileUrl: item.TileURL,
-                tilePictureUrl: item.TilePictureURL,
-                positionX: item.Tile_x0020_Position_x0020_X,
-                positionY: item.Tile_x0020_Position_x0020_Y,
-                tileWidth: item.Tile_x0020_Width,
-                tileHeight: item.Tile_x0020_Height
-            };
-            tiles.push(tile);
-        }
-        return new Promise(resolve => setTimeout(() => {
-            resolve(tiles)
-        }, LATENCY))
-    }
+function fetchAllTiles() {
+    return new Promise(resolve => setTimeout(() => {
+        resolve(response)
+    }, LATENCY))
+}
+
+export function getAllTiles() {
+    return fetchAllTiles().then(response => createTilesInfo(response))
 }
