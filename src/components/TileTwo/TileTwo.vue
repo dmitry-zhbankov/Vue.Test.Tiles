@@ -7,7 +7,7 @@
                     <img alt="Tile Picture" v-bind:src="tilePictureUrl">
                 </div>
                 <div class="tile-title">
-                    <h3>{{title}}</h3>
+                    <label>{{title}}</label>
                 </div>
                 <div class="tile-description">
                     <p>{{ description }}</p>
@@ -108,5 +108,9 @@
 
     a:visited {
         color: aliceblue;
+    }
+
+    label{
+        font-size: 1.5em;
     }
 </style>

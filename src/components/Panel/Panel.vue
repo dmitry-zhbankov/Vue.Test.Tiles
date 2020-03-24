@@ -1,6 +1,6 @@
 <template>
     <div class="panel">
-        <Button v-bind:image-url="imgUrl" v-on:click="$emit('refreshAll')">Refresh all</Button>
+        <Button class="refresh-all-button" v-bind:image-url="imgUrl" v-on:click="$emit('refreshAll')">Refresh all</Button>
         <TileContainer v-for="tile in tiles"
                        v-bind:key="tile.id"
                        v-bind:tile="tile"
@@ -28,5 +28,10 @@
 
 <style scoped>
     .panel {
+    }
+    .refresh-all-button{
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 </style>

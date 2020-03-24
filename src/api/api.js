@@ -20,6 +20,7 @@ export function createTilesInfo(json) {
             id: item.Id,
             type: item.TileType,
             title: item.Title,
+            description: item.Tile_x0020_Description,
             tileUrl: item.TileURL.Url,
             tilePictureUrl: item.TilePictureURL.Url,
             positionX: item.Tile_x0020_Position_x0020_X,

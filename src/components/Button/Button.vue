@@ -21,8 +21,15 @@
 </script>
 
 <style scoped>
+    .my-button{
+        font-size: 1em;
+        margin: 0;
+        padding: 0.3em;
+        min-width: 1.5em;
+        min-height: 1.5em;
+    }
     img{
-        width: 20px;
-        height: 20px;
+        width: 1.5em;
+        height: 1.5em;
     }
 </style>

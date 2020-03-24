@@ -7,7 +7,7 @@
             </div>
             <div class="tile-content" v-bind:class="{transOn:isTrans, transOff:!isTrans}">
                 <div class="tile-title">
-                    <h3>{{title}}</h3>
+                    <label>{{title}}</label>
                 </div>
                 <div class="tile-description">
                     <p>{{ description }}</p>
@@ -72,13 +72,12 @@
         padding: 0 5%;
         width: 90%;
         position: absolute;
-        font-family: Avenir, Helvetica, Arial, sans-serif;
         transform: translate(-5%, 0);
         background: rgba(0, 0, 100, 0.2);
         min-height: 1000%;
     }
 
-    .tile-description p{
+    .tile-description p {
         margin: 0.5em 0;
     }
 
@@ -87,7 +86,7 @@
         height: 100%;
     }
 
-    .tile-title h3{
+    .tile-title h3 {
         margin: 0.5em 0;
     }
 
@@ -108,8 +107,12 @@
         text-decoration: none;
         color: white;
     }
-    a:visited{
+
+    a:visited {
         color: white;
     }
 
+    label{
+        font-size: 1.5em;
+    }
 </style>

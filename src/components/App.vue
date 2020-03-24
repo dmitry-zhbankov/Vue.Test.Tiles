@@ -17,5 +17,6 @@
 
 <style>
     #app {
+        position: relative;
     }
 </style>

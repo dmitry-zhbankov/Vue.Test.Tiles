@@ -1,5 +1,5 @@
 <template>
-    <div class="container" v-bind:style="styleObj">
+    <div class="tile-container" v-bind:style="styleObj">
         <component class="tile-component" v-bind:is="tile.type"
                    v-bind:title="tile.title"
                    v-bind:description="tile.description"
@@ -50,7 +50,7 @@
 </script>
 
 <style scoped>
-    .container {
+    .tile-container {
         position: absolute;
         overflow: hidden;
         border: solid;
@@ -58,12 +58,12 @@
         border-color: transparent;
     }
 
-    .container:hover {
+    .tile-container:hover {
         border-color: black;
     }
 
     .refresh-button {
-        position: relative;
+        position: absolute;
         right: 0;
         top: 0;
     }
