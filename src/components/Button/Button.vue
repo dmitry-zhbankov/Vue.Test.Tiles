@@ -1,5 +1,5 @@
 <template>
-    <button class="my-button" v-on:click="$emit('click')">
+    <button class="my-button" v-on:click="onClick">
         <img v-bind:src="imageUrl">
         <slot></slot>
     </button>
@@ -15,6 +15,11 @@
             return {
                 styleObj: {
                 }
+            }
+        },
+        methods:{
+            onClick:function () {
+                this.$emit('myClick');
             }
         }
     }

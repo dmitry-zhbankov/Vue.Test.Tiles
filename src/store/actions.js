@@ -5,5 +5,8 @@ export default {
         // TODO add spinner
         // context.commit('loadStarted');
         Api.getAllTiles().then(receivedTiles => context.commit('refreshTiles', receivedTiles));
+    },
+    getTileById: function (context, id) {
+        Api.getTileById(id).then(receivedTile => context.commit('refreshTile', receivedTile));
     }
 }

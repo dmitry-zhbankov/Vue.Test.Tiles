@@ -7,7 +7,7 @@
                    v-bind:tilePictureUrl="tile.tilePictureUrl"
         >
         </component>
-        <Button class="refresh-button" v-on:click="$emit('refresh',tile.id)" v-bind:image-url="imgUrl"></Button>
+        <Button class="refresh-button" v-on:myClick="refresh" v-bind:image-url="imgUrl"></Button>
     </div>
 </template>
 
@@ -37,7 +37,7 @@
         },
         methods: {
             refresh: function () {
-                this.$store.dispatch('getTiles');
+                this.$store.dispatch('getTileById', this.$props.tile.id);
             }
 
         },
