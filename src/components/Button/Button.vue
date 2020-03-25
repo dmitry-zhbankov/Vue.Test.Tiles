@@ -1,7 +1,9 @@
 <template>
     <button class="my-button" v-on:click="onClick">
         <img v-bind:src="imageUrl">
-        <slot></slot>
+        <label>
+            <slot></slot>
+        </label>
     </button>
 </template>
 
@@ -13,12 +15,11 @@
         },
         data: function () {
             return {
-                styleObj: {
-                }
+                styleObj: {}
             }
         },
-        methods:{
-            onClick:function () {
+        methods: {
+            onClick: function () {
                 this.$emit('myClick');
             }
         }
@@ -26,15 +27,22 @@
 </script>
 
 <style scoped>
-    .my-button{
+    .my-button {
+        position: relative;
         font-size: 1em;
         margin: 0;
         padding: 0.3em;
         min-width: 1.5em;
         min-height: 1.5em;
     }
-    img{
-        width: 1.5em;
+
+    img {
+        float: left;
         height: 1.5em;
+    }
+
+    label {
+        float: left;
+        line-height: 1.5em;
     }
 </style>

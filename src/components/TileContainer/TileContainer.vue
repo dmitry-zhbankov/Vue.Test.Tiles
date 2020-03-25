@@ -7,7 +7,8 @@
                    v-bind:tilePictureUrl="tile.tilePictureUrl"
         >
         </component>
-        <Button class="refresh-button" v-on:myClick="refresh" v-bind:image-url="imgUrl"></Button>
+        <Button class="refresh-button" v-on:myClick="refresh" v-bind:image-url="refreshIconUrl"></Button>
+        <Button class="edit-button" v-bind:image-url="moveIconUrl"></Button>
     </div>
 </template>
 
@@ -42,8 +43,11 @@
 
         },
         computed: {
-            imgUrl: function () {
+            refreshIconUrl: function () {
                 return require("../../assets/refresh.svg");
+            },
+            moveIconUrl:function () {
+                return require("../../assets/move.svg");
             }
         }
     }
@@ -63,11 +67,14 @@
     }
 
     .refresh-button {
-        position: absolute;
-        right: 0;
-        top: 0;
+        float: right;
+    }
+    .edit-button {
+        float: right;
     }
 
+
     .tile-component {
+        position: absolute;
     }
 </style>
