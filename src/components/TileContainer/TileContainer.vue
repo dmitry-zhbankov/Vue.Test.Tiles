@@ -8,7 +8,7 @@
         >
         </component>
         <Button class="refresh-button" v-on:myClick="refresh" v-bind:image-url="refreshIconUrl"></Button>
-        <Button class="edit-button" v-bind:image-url="moveIconUrl"></Button>
+        <Button class="edit-button" v-on:myClick="edit" v-bind:image-url="moveIconUrl"></Button>
     </div>
 </template>
 
@@ -39,15 +39,17 @@
         methods: {
             refresh: function () {
                 this.$store.dispatch('getTileById', this.$props.tile.id);
+            },
+            edit: function () {
+                this.$router.push(`/modal/${this.$props.tile.id}`)
             }
-
         },
         computed: {
             refreshIconUrl: function () {
-                return require("../../assets/refresh.svg");
+                return require("@/assets/refresh.svg");
             },
-            moveIconUrl:function () {
-                return require("../../assets/move.svg");
+            moveIconUrl: function () {
+                return require("@/assets/move.svg");
             }
         }
     }
@@ -60,6 +62,7 @@
         border: solid;
         border-width: thick;
         border-color: transparent;
+        box-sizing: border-box;
     }
 
     .tile-container:hover {
@@ -69,10 +72,10 @@
     .refresh-button {
         float: right;
     }
+
     .edit-button {
         float: right;
     }
-
 
     .tile-component {
         position: absolute;
