@@ -16,10 +16,8 @@
         },
         computed: {
             tile: function () {
-                let res = this.$store.getters.getTile(this.$props.tileId);
-                return res;
+                return this.$store.getters.getTile(this.$props.tileId);
             },
-
         },
     }
 </script>

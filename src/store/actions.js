@@ -1,4 +1,4 @@
-import Api from "./../api/index";
+import Api from "@/api";
 
 export default {
     getTiles: function (context) {
@@ -8,5 +8,12 @@ export default {
     },
     getTileById: function (context, id) {
         Api.getTileById(id).then(receivedTile => context.commit('refreshTile', receivedTile));
+    },
+    updateTile: function (context, tile) {
+        Api.updateTile(tile).then(result => {
+            if (result) {
+                context.dispatch('getTileById', tile.id);
+            }
+        })
     }
 }

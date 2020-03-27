@@ -8,7 +8,7 @@
         >
         </component>
         <Button class="refresh-button" v-on:myClick="refresh" v-bind:image-url="refreshIconUrl"></Button>
-        <Button class="edit-button" v-on:myClick="edit" v-bind:image-url="moveIconUrl"></Button>
+        <Button class="edit-button" v-on:myClick="edit" v-bind:image-url="editIconUrl"></Button>
     </div>
 </template>
 
@@ -48,8 +48,8 @@
             refreshIconUrl: function () {
                 return require("@/assets/refresh.svg");
             },
-            moveIconUrl: function () {
-                return require("@/assets/move.svg");
+            editIconUrl: function () {
+                return require("@/assets/edit.svg");
             }
         }
     }

@@ -3,19 +3,19 @@
         <div class="tile-fields">
             <label>
                 Title
-                <input type="text" v-bind:value="title">
+                <input type="text" v-model="title">
             </label>
             <label>
                 Description
-                <input type="text" v-bind:value="description">
+                <input type="text" v-model="description">
             </label>
             <label>
                 Tile URL
-                <input type="text" v-bind:value="tileUrl">
+                <input type="text" v-model="tileUrl">
             </label>
             <label>
                 Tile Picture URL
-                <input type="text" v-bind:value="tilePictureUrl">
+                <input type="text" v-model="tilePictureUrl">
             </label>
 
         </div>
@@ -26,10 +26,33 @@
     export default {
         name: "ModalTile",
         props: {
-            title: String,
-            description: String,
-            tileUrl: String,
-            tilePictureUrl: String,
+            tileInfo: {
+                type: Object,
+                required: true,
+            }
+        },
+        computed: {
+            changedTile: function () {
+                return {
+                    title: this.title,
+                    description: this.description,
+                    tileUrl: this.tileUrl,
+                    tilePictureUrl: this.tilePictureUrl,
+                }
+            }
+        },
+        watch: {
+            changedTile: function (val) {
+                this.$emit('change', val);
+            }
+        },
+        data: function () {
+            return {
+                title: this.$props.tileInfo.title,
+                description: this.$props.tileInfo.description,
+                tileUrl: this.$props.tileInfo.tileUrl,
+                tilePictureUrl: this.$props.tileInfo.tilePictureUrl,
+            }
         }
     }
 </script>
@@ -54,5 +77,9 @@
         background: none;
         border: solid;
         margin-bottom: 0.5em;
+    }
+
+    input:focus {
+        border-color: steelblue;
     }
 </style>
