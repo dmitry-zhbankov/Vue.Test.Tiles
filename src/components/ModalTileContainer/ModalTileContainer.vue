@@ -1,5 +1,5 @@
 <template>
-    <div class="modal-tile-container" v-bind:style="compStyle">
+    <div draggable="true" class="modal-tile-container" v-bind:style="compStyle">
         <div class="modal-tile-toolbar">
             <Button v-on:myClick="save">Save</Button>
             <Button v-on:myClick="cancel">Cancel</Button>
@@ -27,8 +27,6 @@
 
                 width: this.$props.tile.tileWidth,
                 height: this.$props.tile.tileHeight,
-                left: this.$props.tile.positionX,
-                top: this.$props.tile.positionY,
 
                 tileInfo: {
                     title: this.$props.tile.title,
@@ -47,6 +45,12 @@
                     top: this.top + 'px',
                 }
             },
+            left: function () {
+                return this.$props.tile.positionX;
+            },
+            top: function () {
+                return this.$props.tile.positionY;
+            }
         },
         methods: {
             save: function () {
@@ -66,7 +70,7 @@
             },
             onChange: function (changedTile) {
                 this.tileInfo = changedTile;
-            }
+            },
         }
     }
 </script>

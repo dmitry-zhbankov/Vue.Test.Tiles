@@ -2,7 +2,7 @@
     <div class="panel">
         <Button class="refresh-all-button" v-bind:image-url="imgUrl" v-on:myClick=refreshAll>Refresh all</Button>
         <TileContainer v-for="tile in tiles"
-                       v-bind:key="tile.Id"
+                       v-bind:key="tile"
                        v-bind:tile="tile"
         ></TileContainer>
     </div>
@@ -17,7 +17,7 @@
         components: {TileContainer, Button},
         computed: {
             tiles: function () {
-                return this.$store.state.tiles
+                return this.$store.state.tiles;
             },
             imgUrl: function () {
                 return require("../../assets/refresh.svg")
