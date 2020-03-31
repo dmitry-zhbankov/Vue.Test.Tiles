@@ -2,7 +2,7 @@
     <div class="panel">
         <Button class="refresh-all-button" v-bind:image-url="imgUrl" v-on:myClick=refreshAll>Refresh all</Button>
         <TileContainer v-for="tile in tiles"
-                       v-bind:key="tile"
+                       v-bind:key="tile.id"
                        v-bind:tile="tile"
         ></TileContainer>
     </div>
@@ -33,12 +33,12 @@
 
 <style scoped>
     .panel {
-        position: relative;
+        position: fixed;
+        width: 100%;
+        height: 100%;
     }
 
     .refresh-all-button {
-        position: absolute;
-        right: 0;
-        top: 0;
+        float: right;
     }
 </style>

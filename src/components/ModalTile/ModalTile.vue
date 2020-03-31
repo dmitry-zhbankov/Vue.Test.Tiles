@@ -17,7 +17,6 @@
                 Tile Picture URL
                 <input type="text" v-model="tilePictureUrl">
             </label>
-
         </div>
     </div>
 </template>
@@ -53,33 +52,40 @@
                 tileUrl: this.$props.tileInfo.tileUrl,
                 tilePictureUrl: this.$props.tileInfo.tilePictureUrl,
             }
-        }
+        },
     }
 </script>
 
 <style scoped>
     .modal-tile {
         float: left;
-        border: solid;
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+    }
+
+    .tile-fields {
+        padding-top: 3em;
+        padding-left: 0.5em;
+        position: absolute;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
     }
 
-    .tile-fields {
-        top: 3em;
-        left: 0.5em;
-        position: absolute;
-    }
-
     input {
         display: block;
-        background: none;
         border: solid;
+        color: white;
         margin-bottom: 0.5em;
+        background: none;
     }
 
     input:focus {
         border-color: steelblue;
+    }
+
+    label {
+        color: white;
     }
 </style>

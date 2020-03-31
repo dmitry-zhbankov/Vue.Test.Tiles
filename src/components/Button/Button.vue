@@ -19,7 +19,8 @@
             }
         },
         methods: {
-            onClick: function () {
+            onClick: function (ev) {
+                ev.preventDefault();
                 this.$emit('myClick');
             }
         }

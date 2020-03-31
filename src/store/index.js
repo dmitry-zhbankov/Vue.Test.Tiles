@@ -8,6 +8,7 @@ Vue.use(Vuex);
 
 const state = {
     tiles: undefined,
+    modalTile: undefined,
 };
 
 export default new Vuex.Store({

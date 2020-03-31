@@ -1,10 +1,10 @@
 <template>
     <div draggable="true" class="modal-tile-container" v-bind:style="compStyle">
+        <ModalTile v-bind:tileInfo="tileInfo" v-on:change="onChange"/>
         <div class="modal-tile-toolbar">
             <Button v-on:myClick="save">Save</Button>
             <Button v-on:myClick="cancel">Cancel</Button>
         </div>
-        <ModalTile v-bind:tileInfo="tileInfo" v-on:change="onChange"/>
     </div>
 </template>
 
@@ -66,6 +66,7 @@
                 this.$router.push("/");
             },
             cancel: function () {
+                this.$emit('cancel');
                 this.$router.push("/");
             },
             onChange: function (changedTile) {
@@ -78,7 +79,9 @@
 <style scoped>
     .modal-tile-container {
         position: absolute;
-        background: white;
+        border: solid;
+        border-width: thick;
+        border-color: red;
     }
 
     .modal-tile-toolbar {

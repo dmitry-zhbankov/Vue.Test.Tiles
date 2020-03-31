@@ -15,5 +15,5 @@ export default {
                 context.dispatch('getTileById', tile.id);
             }
         })
-    }
+    },
 }

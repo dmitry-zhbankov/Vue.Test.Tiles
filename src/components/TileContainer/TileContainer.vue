@@ -1,5 +1,5 @@
 <template>
-    <div class="tile-container" v-bind:style="styleObj">
+    <div class="tile-container" v-bind:style="compStyleObj">
         <component class="tile-component" v-bind:is="tile.type"
                    v-bind:title="tile.title"
                    v-bind:description="tile.description"
@@ -41,6 +41,7 @@
                 this.$store.dispatch('getTileById', this.$props.tile.id);
             },
             edit: function () {
+                this.$store.modalTile = Object.assign({}, this.$props.tile);
                 this.$router.push(`/modal/${this.$props.tile.id}`)
             }
         },
@@ -50,6 +51,14 @@
             },
             editIconUrl: function () {
                 return require("@/assets/edit.svg");
+            },
+            compStyleObj: function () {
+                return {
+                    width: this.$props.tile.tileWidth + 'px',
+                    height: this.$props.tile.tileHeight + 'px',
+                    left: this.$props.tile.positionX + 'px',
+                    top: this.$props.tile.positionY + 'px',
+                }
             }
         }
     }
@@ -62,7 +71,6 @@
         border: solid;
         border-width: thick;
         border-color: transparent;
-        box-sizing: border-box;
     }
 
     .tile-container:hover {
