@@ -1,8 +1,17 @@
 import Vue from 'vue'
-import App from './App.vue'
+import VueRouter from "vue-router";
+import App from '@/components/App'
+import store from '@/store'
+import router from '@/router'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.use(VueRouter);
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+    el: '#app',
+    store,
+    router,
+    render: h => h(App),
+});
+
+store.dispatch('getTiles', store);

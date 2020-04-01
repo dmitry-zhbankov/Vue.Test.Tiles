@@ -1,0 +1,90 @@
+<template>
+    <div draggable="true" class="modal-tile-container" v-bind:style="compStyle">
+        <ModalTile v-bind:tileInfo="tileInfo" v-on:change="onChange"/>
+        <div class="modal-tile-toolbar">
+            <Button v-on:myClick="save">Save</Button>
+            <Button v-on:myClick="cancel">Cancel</Button>
+        </div>
+    </div>
+</template>
+
+<script>
+    import ModalTile from "@/components/ModalTile";
+    import Button from "@/components/Button";
+
+    export default {
+        name: "ModalTileContainer",
+        components: {Button, ModalTile},
+        props: {
+            tile: {
+                type: Object,
+                required: true,
+            },
+        },
+        data: function () {
+            return {
+                id: this.$props.tile.id,
+
+                width: this.$props.tile.tileWidth,
+                height: this.$props.tile.tileHeight,
+
+                tileInfo: {
+                    title: this.$props.tile.title,
+                    description: this.$props.tile.description,
+                    tileUrl: this.$props.tile.tileUrl,
+                    tilePictureUrl: this.$props.tile.tilePictureUrl,
+                }
+            }
+        },
+        computed: {
+            compStyle: function () {
+                return {
+                    width: this.width + 'px',
+                    height: this.height + 'px',
+                    left: this.left + 'px',
+                    top: this.top + 'px',
+                }
+            },
+            left: function () {
+                return this.$props.tile.positionX;
+            },
+            top: function () {
+                return this.$props.tile.positionY;
+            }
+        },
+        methods: {
+            save: function () {
+                let tileToSave = {
+                    id: this.id,
+                    width: this.width,
+                    height: this.height,
+                    left: this.left,
+                    top: this.top,
+                    ...this.tileInfo
+                };
+                this.$store.dispatch('updateTile', tileToSave);
+                this.$router.push("/");
+            },
+            cancel: function () {
+                this.$emit('cancel');
+                this.$router.push("/");
+            },
+            onChange: function (changedTile) {
+                this.tileInfo = changedTile;
+            },
+        }
+    }
+</script>
+
+<style scoped>
+    .modal-tile-container {
+        position: absolute;
+        border: solid;
+        border-width: thick;
+        border-color: red;
+    }
+
+    .modal-tile-toolbar {
+        position: absolute;
+    }
+</style>
